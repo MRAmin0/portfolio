@@ -10,6 +10,7 @@ const projects = [
       "A modern weather application with real-time data, beautiful animations, and responsive design.",
     tech: ["Flutter", "Dart", "REST API", "OpenWeatherMap"],
     github: "https://github.com/MRAmin0/Weatherly",
+    demo: "https://weatherly-zeta.vercel.app/",
   },
   {
     title: "Duplicate File Scanner",
@@ -144,15 +145,15 @@ export default function Projects() {
                 </a>
 
                 <a
-                  href={project.github}
+                  href={project.demo}
                   target="_blank"
                   className="
-      flex
-      items-center
-      gap-2
-      text-zinc-300
-      hover:text-white
-    "
+    flex
+    items-center
+    gap-2
+    text-zinc-300
+    hover:text-white
+  "
                 >
                   <ExternalLink size={18} />
                   Demo
