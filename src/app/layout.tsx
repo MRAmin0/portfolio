@@ -13,9 +13,36 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mramin0.github.io"),
+
   title: "Amin Monajati | Python Backend Developer",
   description:
-    "Python Backend Developer building APIs, automation tools and scalable software solutions.",
+    "Amin Monajati is a Python Backend Developer building REST APIs, automation tools, and scalable software solutions.",
+
+  keywords: [
+    "Python Developer",
+    "Backend Developer",
+    "Django Developer",
+    "FastAPI Developer",
+    "REST API",
+    "Software Engineer",
+  ],
+
+  authors: [
+    {
+      name: "Amin Monajati",
+    },
+  ],
+
+  openGraph: {
+    title: "Amin Monajati | Python Backend Developer",
+    description:
+      "Building backend systems, APIs, and automation tools with Python.",
+    url: "https://mramin0.github.io",
+    siteName: "Amin Monajati Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
