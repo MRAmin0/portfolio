@@ -1,131 +1,196 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2 } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { Mail } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
-      
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10">
-        <div className="
-          absolute top-1/3 left-1/2 
-          -translate-x-1/2
-          w-[500px] h-[500px]
-          bg-blue-500/20
-          rounded-full
-          blur-[120px]
-        " />
-      </div>
-
-      {/* Grid */}
-      <div className="
-        absolute inset-0 -z-20
-        bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),
-        linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)]
-        bg-[size:40px_40px]
-      " />
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="max-w-4xl text-center"
+    <section className="min-h-screen flex items-center px-6">
+      <div
+        className="
+        max-w-6xl
+        mx-auto
+        w-full
+        grid
+        md:grid-cols-2
+        gap-12
+        items-center
+      "
       >
+        {/* Text */}
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: -40,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+        >
+          <p className="text-blue-400 mb-4 font-mono">Hello, I'm</p>
 
-        <div className="
-          inline-flex items-center gap-2
-          px-4 py-2 mb-8
-          rounded-full
-          border border-white/10
-          bg-white/5
-          text-sm text-zinc-300
-        ">
-          <Code2 size={16} className="text-blue-400" />
-          Python Backend Developer
-        </div>
-
-
-        <h1 className="
-          text-5xl md:text-7xl
-          font-bold
-          tracking-tight
-        ">
-          Building{" "}
-          <span className="text-blue-400">
-            Backend Systems
-          </span>
-          <br />
-          That Solve Real Problems
-        </h1>
-
-
-        <p className="
-          mt-8
-          text-lg md:text-xl
-          text-zinc-400
-          max-w-2xl
-          mx-auto
-          leading-relaxed
-        ">
-          I build Python applications, automation tools,
-          and REST APIs with clean architecture and modern technologies.
-        </p>
-
-
-        <div className="
-          mt-10
-          flex flex-col sm:flex-row
-          justify-center
-          gap-4
-        ">
-
-          <a
-            href="#projects"
+          <h1
             className="
-              group
-              flex items-center justify-center gap-2
-              px-6 py-3
-              rounded-xl
-              bg-white
-              text-black
-              font-medium
-              hover:bg-zinc-200
-              transition
-            "
+            text-5xl
+            md:text-7xl
+            font-bold
+            leading-tight
+          "
           >
-            View Projects
+            Amin Monajati
+          </h1>
 
-            <ArrowRight
-              size={18}
+          <h2
+            className="
+            mt-4
+            text-2xl
+            md:text-3xl
+            text-zinc-400
+          "
+          >
+            Python Backend Developer
+          </h2>
+
+          <p
+            className="
+            mt-6
+            text-zinc-400
+            text-lg
+            max-w-xl
+            leading-relaxed
+          "
+          >
+            I build scalable backend systems, REST APIs, and automation tools
+            using Python, Django, and FastAPI.
+          </p>
+
+          <div
+            className="
+            flex
+            flex-wrap
+            gap-4
+            mt-10
+          "
+          >
+            <a
+              href="https://github.com/MRAmin0"
+              target="_blank"
               className="
-                group-hover:translate-x-1
+                flex
+                items-center
+                gap-2
+                px-5
+                py-3
+                rounded-xl
+                bg-white
+                text-black
+                hover:bg-zinc-200
                 transition
               "
-            />
-          </a>
+            >
+              <FaGithub />
+              GitHub
+            </a>
 
+            <a
+              href="https://www.linkedin.com/in/amin-monajati/"
+              target="_blank"
+              className="
+                flex
+                items-center
+                gap-2
+                px-5
+                py-3
+                rounded-xl
+                border
+                border-white/10
+                hover:bg-white/10
+                transition
+              "
+            >
+              <FaLinkedin />
+              LinkedIn
+            </a>
 
-          <a
-            href="#contact"
+            <a
+              href="#contact"
+              className="
+                flex
+                items-center
+                gap-2
+                px-5
+                py-3
+                rounded-xl
+                border
+                border-white/10
+                hover:bg-white/10
+                transition
+              "
+            >
+              <Mail size={18} />
+              Contact
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Image */}
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.8,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          className="
+            flex
+            justify-center
+          "
+        >
+          <div
             className="
-              px-6 py-3
-              rounded-xl
-              border border-white/10
-              bg-white/5
-              hover:bg-white/10
-              transition
-            "
+            relative
+            w-72
+            h-72
+            md:w-96
+            md:h-96
+          "
           >
-            Contact Me
-          </a>
+            <div
+              className="
+              absolute
+              inset-0
+              rounded-full
+              bg-blue-500/20
+              blur-3xl
+            "
+            />
 
-        </div>
-
-
-      </motion.div>
-
+            <Image
+              src="/images/amin.jpg"
+              alt="Amin Monajati"
+              fill
+              className="
+                relative
+                object-cover
+                rounded-full
+                border
+                border-white/10
+              "
+            />
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
