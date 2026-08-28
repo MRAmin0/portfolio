@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Project request form (Resend)
+
+The contact form posts to `POST /api/project-request` and sends the request server-side through the Resend HTTP API. The API key is never exposed to the browser.
+
+1. Create a Resend account and API key.
+2. Copy `.env.example` to `.env.local` for local development and set `RESEND_API_KEY`.
+3. In Vercel, add the same environment variables under **Project Settings → Environment Variables** and redeploy.
+4. For production sending from your own address, verify a domain in Resend and set `RESEND_FROM_EMAIL` to an address on that domain.
+
+The destination defaults to `aminmonajati9@gmail.com` and can be changed through `PROJECT_REQUEST_TO`.
