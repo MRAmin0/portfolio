@@ -10,6 +10,8 @@ import {
   SiTypescript,
   SiPostman,
   SiFlutter,
+  SiReact,
+  SiExpo,
 } from "react-icons/si";
 
 const skills = [
@@ -37,6 +39,14 @@ const skills = [
       {
         name: "Flutter",
         icon: SiFlutter,
+      },
+      {
+        name: "React Native",
+        icon: SiReact,
+      },
+      {
+        name: "Expo / Expo Go",
+        icon: SiExpo,
       },
     ],
   },
@@ -141,6 +151,7 @@ export default function Skills() {
                 flex
                 flex-wrap
                 gap-4
+                lg:flex-nowrap
               "
               >
                 {group.items.map((skill) => {
@@ -151,8 +162,10 @@ export default function Skills() {
                       key={skill.name}
                       className="
                         flex
+                        shrink-0
                         items-center
                         gap-3
+                        whitespace-nowrap
                         px-4
                         py-3
                         rounded-xl
