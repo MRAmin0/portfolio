@@ -1,68 +1,87 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Mail, Menu, X } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useState } from "react";
+
+const links = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Focus", href: "#focus" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="
-        fixed top-6 left-1/2 -translate-x-1/2 z-50
-        flex items-center justify-between
-        w-[90%] max-w-5xl
-        px-6 py-3
-        rounded-2xl
-        border border-white/10
-        bg-black/40
-        backdrop-blur-xl
-      "
-    >
-      <div className="font-bold text-xl tracking-tight">
-        Amin<span className="text-blue-400">.</span>
-      </div>
-
-      <div className="hidden md:flex items-center gap-8 text-sm text-zinc-300">
-        <a href="#about" className="hover:text-white transition">
-          About
+    <>
+      <motion.nav
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="fixed top-4 left-1/2 z-50 flex w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 items-center justify-between rounded-2xl border border-white/10 bg-black/70 px-5 py-3 shadow-2xl shadow-black/20 backdrop-blur-xl md:top-6 md:px-6"
+        aria-label="Main navigation"
+      >
+        <a href="#top" className="text-xl font-bold tracking-tight" onClick={() => setOpen(false)}>
+          Amin<span className="text-blue-400">.</span>
         </a>
 
-        <a href="#projects" className="hover:text-white transition">
-          Projects
-        </a>
+        <div className="hidden items-center gap-7 text-sm text-zinc-300 md:flex">
+          {links.map((link) => (
+            <a key={link.href} href={link.href} className="transition hover:text-white">
+              {link.label}
+            </a>
+          ))}
+        </div>
 
-        <a href="#contact" className="hover:text-white transition">
-          Contact
-        </a>
-      </div>
+        <div className="hidden items-center gap-4 text-sm sm:flex">
+          <a href="https://github.com/MRAmin0" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-zinc-400 transition hover:text-white">
+            <FaGithub size={18} />
+          </a>
+          <a href="https://www.linkedin.com/in/amin-monajati/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-zinc-400 transition hover:text-white">
+            <FaLinkedin size={18} />
+          </a>
+          <a href="mailto:aminmonajati9@gmail.com" aria-label="Email" className="text-zinc-400 transition hover:text-white">
+            <Mail size={18} />
+          </a>
+        </div>
 
-      <div className="flex items-center gap-4 text-sm">
-        <a
-          href="https://github.com/MRAmin0"
-          target="_blank"
-          className="text-zinc-400 hover:text-white transition"
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          className="rounded-lg p-1 text-zinc-300 transition hover:bg-white/10 hover:text-white md:hidden"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
         >
-          <FaGithub size={18} />
-        </a>
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </motion.nav>
 
-        <a
-          href="https://www.linkedin.com/in/amin-monajati/"
-          target="_blank"
-          className="text-zinc-400 hover:text-white transition"
-        >
-          <FaLinkedin size={18} />
-        </a>
-
-        <a
-          href="mailto:aminmonajati9@gmail.com"
-          className="text-zinc-400 hover:text-white transition"
-        >
-          <Mail size={18} />
-        </a>
-      </div>
-    </motion.nav>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed top-20 left-1/2 z-40 w-[calc(100%-2rem)] -translate-x-1/2 rounded-2xl border border-white/10 bg-zinc-950/95 p-3 shadow-2xl backdrop-blur-xl md:hidden"
+          >
+            <div className="flex flex-col">
+              {links.map((link) => (
+                <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 text-zinc-300 transition hover:bg-white/5 hover:text-white">
+                  {link.label}
+                </a>
+              ))}
+              <div className="mt-2 flex gap-2 border-t border-white/10 pt-3 sm:hidden">
+                <a href="https://github.com/MRAmin0" target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-white/5 px-3 py-3 text-sm text-zinc-300"><FaGithub /> GitHub</a>
+                <a href="mailto:aminmonajati9@gmail.com" className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-white/5 px-3 py-3 text-sm text-zinc-300"><Mail size={17} /> Email</a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

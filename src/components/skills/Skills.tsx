@@ -80,9 +80,9 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="py-32 px-6">
+    <section id="skills" className="scroll-mt-24 border-y border-white/[0.06] bg-white/[0.02] py-28 px-6 md:py-32">
       <div className="max-w-6xl mx-auto">
-        <p className="text-blue-400 mb-4">Skills</p>
+        <p className="text-blue-400 mb-4 font-mono text-sm uppercase tracking-[0.2em]">Skills</p>
 
         <h2
           className="
@@ -121,8 +121,9 @@ export default function Skills() {
               className="
                 rounded-2xl
                 border border-white/10
-                bg-white/5
+                bg-black/30
                 p-8
+                transition duration-300 hover:border-blue-400/20 hover:bg-white/5
               "
             >
               <h3
