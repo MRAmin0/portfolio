@@ -13,35 +13,53 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mramin0.github.io"),
-
-  title: "Amin Monajati | Python Backend Developer",
+  metadataBase: new URL("https://amin-monajati.vercel.app"),
+  title: {
+    default: "Amin Monajati | Backend Developer",
+    template: "%s | Amin Monajati",
+  },
   description:
-    "Amin Monajati is a Python Backend Developer building REST APIs, automation tools, and scalable software solutions.",
-
+    "Portfolio of Amin Monajati — a backend-focused developer building APIs, automation tools, and modern web experiences with Python, Django, FastAPI, and Next.js.",
   keywords: [
-    "Python Developer",
+    "Amin Monajati",
     "Backend Developer",
-    "Django Developer",
-    "FastAPI Developer",
-    "REST API",
-    "Software Engineer",
+    "Python Developer",
+    "Django",
+    "FastAPI",
+    "Next.js",
+    "Portfolio",
   ],
-
-  authors: [
-    {
-      name: "Amin Monajati",
-    },
-  ],
-
+  authors: [{ name: "Amin Monajati" }],
+  creator: "Amin Monajati",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Amin Monajati | Python Backend Developer",
-    description:
-      "Building backend systems, APIs, and automation tools with Python.",
-    url: "https://mramin0.github.io",
-    siteName: "Amin Monajati Portfolio",
-    locale: "en_US",
     type: "website",
+    url: "/",
+    title: "Amin Monajati | Backend Developer",
+    description:
+      "Backend-focused developer building APIs, automation tools, and modern web experiences.",
+    siteName: "Amin Monajati",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Amin Monajati — Backend Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Amin Monajati | Backend Developer",
+    description:
+      "Backend-focused developer building APIs, automation tools, and modern web experiences.",
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
