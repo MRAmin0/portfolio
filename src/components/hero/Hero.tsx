@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { ArrowDown, Mail } from "lucide-react";
@@ -43,13 +42,38 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="flex justify-center md:justify-end">
-          <div className="relative h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96">
-            <div className="absolute -inset-5 rounded-[2.5rem] bg-blue-500/15 blur-3xl" />
-            <div className="absolute -inset-3 rotate-3 rounded-[2.3rem] border border-blue-400/20 bg-blue-400/5" />
-            <div className="relative h-full w-full overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 shadow-2xl shadow-blue-950/30">
-              <Image src="/images/amin.jpg" alt="Amin Monajati" fill priority sizes="(max-width: 768px) 320px, 384px" className="object-cover" />
+        <motion.div initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex justify-center md:justify-end">
+          <div className="relative w-full max-w-md">
+            <div className="absolute -inset-6 rounded-[2.5rem] bg-blue-500/10 blur-3xl" />
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0d10]/95 shadow-2xl shadow-blue-950/30">
+              <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.035] px-4 py-3">
+                <div className="flex gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+                </div>
+                <span className="font-mono text-[11px] text-zinc-500">amin@portfolio: ~</span>
+                <span className="w-10" />
+              </div>
+
+              <div className="min-h-[310px] p-5 font-mono text-sm leading-7 sm:p-7">
+                <p className="text-zinc-500"><span className="text-emerald-400">amin@portfolio</span>:<span className="text-blue-400">~</span>$ whoami</p>
+                <p className="mt-1 text-zinc-200">Amin Monajati</p>
+
+                <p className="mt-5 text-zinc-500"><span className="text-emerald-400">amin@portfolio</span>:<span className="text-blue-400">~</span>$ cat focus.txt</p>
+                <div className="mt-1 space-y-1 text-zinc-300">
+                  <p><span className="text-blue-400">›</span> Python Backend Development</p>
+                  <p><span className="text-blue-400">›</span> Django &amp; FastAPI</p>
+                  <p><span className="text-blue-400">›</span> REST APIs &amp; Automation</p>
+                </div>
+
+                <p className="mt-5 text-zinc-500"><span className="text-emerald-400">amin@portfolio</span>:<span className="text-blue-400">~</span>$ status</p>
+                <p className="mt-1 flex items-center gap-2 text-emerald-300"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> OPEN TO OPPORTUNITIES</p>
+
+                <p className="mt-5 text-zinc-500"><span className="text-emerald-400">amin@portfolio</span>:<span className="text-blue-400">~</span>$ <motion.span aria-hidden animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1, repeat: Infinity }} className="inline-block h-4 w-2 translate-y-0.5 bg-zinc-300" /></p>
+              </div>
             </div>
+            <div className="absolute -bottom-3 -right-3 rounded-lg border border-blue-400/20 bg-blue-400/10 px-3 py-1.5 font-mono text-xs text-blue-300 backdrop-blur">build • learn • iterate</div>
           </div>
         </motion.div>
       </div>
