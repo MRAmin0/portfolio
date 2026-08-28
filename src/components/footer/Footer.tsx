@@ -12,7 +12,11 @@ export default function Footer() {
           <a href="#top" aria-label="Back to top" className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-zinc-400 transition hover:bg-white/10 hover:text-white"><ArrowUp size={17} /></a>
         </div>
       </div>
-      <p className="mt-5 text-center font-mono text-[10px] tracking-[0.2em] text-zinc-800">v6.5</p>
+      
+    
+      <div className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-white/25">
+        v7.1
+      </div>
     </footer>
   );
 }

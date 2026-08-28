@@ -52,7 +52,7 @@ export default function Focus() {
         </motion.div>
 
         <div className="relative mt-14 grid gap-5 md:grid-cols-3">
-          <div className="pointer-events-none absolute left-[16.66%] right-[16.66%] top-7 hidden h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent md:block" />
+          <div className="pointer-events-none absolute left-[16.66%] right-[16.66%] top-0 hidden h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent md:block" />
           {focusItems.map((item, index) => {
             const Icon = item.icon;
             return (
