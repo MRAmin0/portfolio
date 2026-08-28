@@ -108,10 +108,14 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: index * 0.08 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-4 transition duration-300 hover:border-blue-400/25 md:p-5"
+              whileHover={{ y: -5 }}
+              className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-4 transition duration-300 hover:border-blue-400/25 hover:bg-white/[0.05] md:p-5"
             >
               <div className="grid items-center gap-7 lg:grid-cols-[1.08fr_.92fr]">
-                <ProjectVisual type={project.type} />
+                <motion.div className="relative" whileHover={{ scale: 1.015 }} transition={{ type: "spring", stiffness: 260, damping: 24 }}>
+                  <div className="pointer-events-none absolute inset-0 z-10 rounded-[1.4rem] bg-gradient-to-tr from-transparent via-transparent to-blue-400/0 transition duration-500 group-hover:to-blue-400/10" />
+                  <ProjectVisual type={project.type} />
+                </motion.div>
                 <div className="px-2 pb-3 md:px-4 lg:py-4">
                   <div className="flex items-center justify-between gap-3">
                     <span className="font-mono text-xs text-zinc-600">PROJECT / 0{index + 1}</span>
@@ -123,9 +127,9 @@ export default function Projects() {
                     {project.tech.map((item) => <span key={item} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300">{item}</span>)}
                   </div>
                   <div className="mt-8 flex flex-wrap gap-3 text-sm">
-                    <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-zinc-300 transition hover:bg-white/10 hover:text-white"><FaGithub size={18} /> Source Code</a>
+                    <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-zinc-300 transition hover:-translate-y-0.5 hover:bg-white/10 hover:text-white"><FaGithub size={18} /> Source Code</a>
                     {project.demo && (
-                      <a href={project.demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 font-medium text-black transition hover:bg-zinc-200"><ExternalLink size={17} /> Live Demo</a>
+                      <a href={project.demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 font-medium text-black transition hover:-translate-y-0.5 hover:bg-zinc-200"><ExternalLink size={17} /> Live Demo</a>
                     )}
                   </div>
                 </div>
